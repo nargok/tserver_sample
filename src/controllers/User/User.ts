@@ -7,7 +7,7 @@ export class UserController extends CrudController {
   }
 
   public read(req: Request<import("express-serve-static-core").ParamsDictionary>, res: Response): void {
-    throw new Error("Method not implemented.")
+    res.json({ message: 'GET /user request received' });
   }
 
   public update(req: Request<import("express-serve-static-core").ParamsDictionary>, res: Response): void {
