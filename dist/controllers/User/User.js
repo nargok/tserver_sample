@@ -12,8 +12,14 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+var log4js_1 = __importDefault(require("log4js"));
 var CrudController_1 = require("../CrudController");
+var logger = log4js_1.default.getLogger();
+logger.level = 'debug';
 var UserController = /** @class */ (function (_super) {
     __extends(UserController, _super);
     function UserController() {
@@ -24,6 +30,17 @@ var UserController = /** @class */ (function (_super) {
     };
     UserController.prototype.read = function (req, res) {
         res.json({ message: 'GET /user request received' });
+        var user = {
+            id: 1,
+            name: 'hogehgoe',
+            age: 23,
+        };
+        var users = [
+            { id: 1, name: 'yamada taro', age: 23 },
+            { id: 2, name: 'wakabayashi ichiro', age: 30 },
+        ];
+        logger.debug('get user request: ' + JSON.stringify(users));
+        // logger.debug('get user request: ' + JSON.stringify(user))
     };
     UserController.prototype.update = function (req, res) {
         throw new Error("Method not implemented.");
